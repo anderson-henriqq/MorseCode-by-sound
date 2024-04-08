@@ -9,7 +9,7 @@ int ultimoSom;
 // Definição dos tempos para representar ponto e traço
 final int pontoDuration = 1000; // 1 segundo
 final int tracoDuration = 2000; // 2 segundos
-final float frequencia = 2000; // Frequência constante de 2000Hz
+final float frequencia = 4000; // Frequência constante de 4000Hz, alterado em 08/04/2024 por ser considerado mais audível
 
 void setup() {
   size(1280, 720);

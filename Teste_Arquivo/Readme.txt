@@ -1,0 +1,1 @@
+O arquivo de som "sine_2000hz" tem 0,5 segundos.

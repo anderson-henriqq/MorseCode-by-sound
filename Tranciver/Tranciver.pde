@@ -5,6 +5,8 @@ SoundFile dot;
 SoundFile dash;
 String entrada = " "; // Variável para armazenar a entrada do usuário
 ArrayList<String> morseCode;
+int intevalo_dash = 3000;
+int intevalo_dot = 1000;
 
 void setup() {
   // Cria uma janela de 400x200 pixels
@@ -90,15 +92,18 @@ void imp(ArrayList<String> lista){
 void Transciver(ArrayList<String> lista){
   int i,j;
   for(i=0; i < lista.size() ; i++){
-    delay(400); 
+    delay(500); 
     String x = lista.get(i);
     for(j=0; j < x.length(); j++){
-       if( x.charAt(j) == '-'){
+      delay(200); 
+      if( x.charAt(j) == '-'){
          dash.play();
+         delay(3000);
        }
        
        if( x.charAt(j) == '.'){
-         dot.play();  
+         dot.play();
+         delay(1000);
        }
     }
   }

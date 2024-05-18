@@ -6,8 +6,9 @@ AudioInput in;
 FFT fft;
 
 int contador = 0;
-
-
+int t;
+int tempoAtual;
+int ultimoTempo,deltaT;
 void setup() {
   size(400, 200);
   
@@ -24,19 +25,33 @@ void draw() {
   
   // Atualiza o FFT com o sinal de áudio
   fft.forward(in.mix);
+  tempoAtual = millis();
   
   // Encontra a frequência dominante
-  delay(100);
+  delay(50);
   float freq = findDominantFrequency();
+  
   if(freq > 5900){
-    
+    if(t==0){
+      ultimoTempo = tempoAtual;
+      t = t+1;
+    }
     contador = contador + 1;
   }
+  if(freq < 5000){
+    if(t==1){
+      deltaT = tempoAtual - ultimoTempo;
+    }
+    t=0;
+  }
+  
+  
   // Exibe a frequência dominante na tela
   fill(0);
   textSize(18);
   text("Frequência Dominante: " + freq + " Hz", 20, 30);
   text("Contador: " + contador, 20, 50);
+  text("Tempo: " + deltaT, 20, 70);
 }
 
 // Função para encontrar a frequência dominante
